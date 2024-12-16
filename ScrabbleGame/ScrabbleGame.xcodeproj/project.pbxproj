@@ -1,0 +1,557 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		F7CC47C22D0B6D3900D090A4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F7CC47A92D0B6D3800D090A4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F7CC47B02D0B6D3800D090A4;
+			remoteInfo = ScrabbleGame;
+		};
+		F7CC47CC2D0B6D3900D090A4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F7CC47A92D0B6D3800D090A4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F7CC47B02D0B6D3800D090A4;
+			remoteInfo = ScrabbleGame;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F7CC47B12D0B6D3800D090A4 /* ScrabbleGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScrabbleGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7CC47C12D0B6D3900D090A4 /* ScrabbleGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScrabbleGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7CC47CB2D0B6D3900D090A4 /* ScrabbleGameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScrabbleGameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		F7CC47B32D0B6D3800D090A4 /* ScrabbleGame */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ScrabbleGame;
+			sourceTree = "<group>";
+		};
+		F7CC47C42D0B6D3900D090A4 /* ScrabbleGameTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ScrabbleGameTests;
+			sourceTree = "<group>";
+		};
+		F7CC47CE2D0B6D3900D090A4 /* ScrabbleGameUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ScrabbleGameUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F7CC47AE2D0B6D3800D090A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7CC47BE2D0B6D3900D090A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7CC47C82D0B6D3900D090A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F7CC47A82D0B6D3800D090A4 = {
+			isa = PBXGroup;
+			children = (
+				F7CC47B32D0B6D3800D090A4 /* ScrabbleGame */,
+				F7CC47C42D0B6D3900D090A4 /* ScrabbleGameTests */,
+				F7CC47CE2D0B6D3900D090A4 /* ScrabbleGameUITests */,
+				F7CC47B22D0B6D3800D090A4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F7CC47B22D0B6D3800D090A4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F7CC47B12D0B6D3800D090A4 /* ScrabbleGame.app */,
+				F7CC47C12D0B6D3900D090A4 /* ScrabbleGameTests.xctest */,
+				F7CC47CB2D0B6D3900D090A4 /* ScrabbleGameUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F7CC47B02D0B6D3800D090A4 /* ScrabbleGame */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F7CC47D52D0B6D3900D090A4 /* Build configuration list for PBXNativeTarget "ScrabbleGame" */;
+			buildPhases = (
+				F7CC47AD2D0B6D3800D090A4 /* Sources */,
+				F7CC47AE2D0B6D3800D090A4 /* Frameworks */,
+				F7CC47AF2D0B6D3800D090A4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				F7CC47B32D0B6D3800D090A4 /* ScrabbleGame */,
+			);
+			name = ScrabbleGame;
+			packageProductDependencies = (
+			);
+			productName = ScrabbleGame;
+			productReference = F7CC47B12D0B6D3800D090A4 /* ScrabbleGame.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F7CC47C02D0B6D3900D090A4 /* ScrabbleGameTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F7CC47D82D0B6D3900D090A4 /* Build configuration list for PBXNativeTarget "ScrabbleGameTests" */;
+			buildPhases = (
+				F7CC47BD2D0B6D3900D090A4 /* Sources */,
+				F7CC47BE2D0B6D3900D090A4 /* Frameworks */,
+				F7CC47BF2D0B6D3900D090A4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F7CC47C32D0B6D3900D090A4 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				F7CC47C42D0B6D3900D090A4 /* ScrabbleGameTests */,
+			);
+			name = ScrabbleGameTests;
+			packageProductDependencies = (
+			);
+			productName = ScrabbleGameTests;
+			productReference = F7CC47C12D0B6D3900D090A4 /* ScrabbleGameTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F7CC47CA2D0B6D3900D090A4 /* ScrabbleGameUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F7CC47DB2D0B6D3900D090A4 /* Build configuration list for PBXNativeTarget "ScrabbleGameUITests" */;
+			buildPhases = (
+				F7CC47C72D0B6D3900D090A4 /* Sources */,
+				F7CC47C82D0B6D3900D090A4 /* Frameworks */,
+				F7CC47C92D0B6D3900D090A4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F7CC47CD2D0B6D3900D090A4 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				F7CC47CE2D0B6D3900D090A4 /* ScrabbleGameUITests */,
+			);
+			name = ScrabbleGameUITests;
+			packageProductDependencies = (
+			);
+			productName = ScrabbleGameUITests;
+			productReference = F7CC47CB2D0B6D3900D090A4 /* ScrabbleGameUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F7CC47A92D0B6D3800D090A4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1610;
+				LastUpgradeCheck = 1610;
+				TargetAttributes = {
+					F7CC47B02D0B6D3800D090A4 = {
+						CreatedOnToolsVersion = 16.1;
+					};
+					F7CC47C02D0B6D3900D090A4 = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = F7CC47B02D0B6D3800D090A4;
+					};
+					F7CC47CA2D0B6D3900D090A4 = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = F7CC47B02D0B6D3800D090A4;
+					};
+				};
+			};
+			buildConfigurationList = F7CC47AC2D0B6D3800D090A4 /* Build configuration list for PBXProject "ScrabbleGame" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F7CC47A82D0B6D3800D090A4;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = F7CC47B22D0B6D3800D090A4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F7CC47B02D0B6D3800D090A4 /* ScrabbleGame */,
+				F7CC47C02D0B6D3900D090A4 /* ScrabbleGameTests */,
+				F7CC47CA2D0B6D3900D090A4 /* ScrabbleGameUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F7CC47AF2D0B6D3800D090A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7CC47BF2D0B6D3900D090A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7CC47C92D0B6D3900D090A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F7CC47AD2D0B6D3800D090A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7CC47BD2D0B6D3900D090A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7CC47C72D0B6D3900D090A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F7CC47C32D0B6D3900D090A4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F7CC47B02D0B6D3800D090A4 /* ScrabbleGame */;
+			targetProxy = F7CC47C22D0B6D3900D090A4 /* PBXContainerItemProxy */;
+		};
+		F7CC47CD2D0B6D3900D090A4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F7CC47B02D0B6D3800D090A4 /* ScrabbleGame */;
+			targetProxy = F7CC47CC2D0B6D3900D090A4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F7CC47D32D0B6D3900D090A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F7CC47D42D0B6D3900D090A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F7CC47D62D0B6D3900D090A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ScrabbleGame/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.previak.ScrabbleGame;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F7CC47D72D0B6D3900D090A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ScrabbleGame/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.previak.ScrabbleGame;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F7CC47D92D0B6D3900D090A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.previak.ScrabbleGameTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ScrabbleGame.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ScrabbleGame";
+			};
+			name = Debug;
+		};
+		F7CC47DA2D0B6D3900D090A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.previak.ScrabbleGameTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ScrabbleGame.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ScrabbleGame";
+			};
+			name = Release;
+		};
+		F7CC47DC2D0B6D3900D090A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.previak.ScrabbleGameUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ScrabbleGame;
+			};
+			name = Debug;
+		};
+		F7CC47DD2D0B6D3900D090A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.previak.ScrabbleGameUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ScrabbleGame;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F7CC47AC2D0B6D3800D090A4 /* Build configuration list for PBXProject "ScrabbleGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7CC47D32D0B6D3900D090A4 /* Debug */,
+				F7CC47D42D0B6D3900D090A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F7CC47D52D0B6D3900D090A4 /* Build configuration list for PBXNativeTarget "ScrabbleGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7CC47D62D0B6D3900D090A4 /* Debug */,
+				F7CC47D72D0B6D3900D090A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F7CC47D82D0B6D3900D090A4 /* Build configuration list for PBXNativeTarget "ScrabbleGameTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7CC47D92D0B6D3900D090A4 /* Debug */,
+				F7CC47DA2D0B6D3900D090A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F7CC47DB2D0B6D3900D090A4 /* Build configuration list for PBXNativeTarget "ScrabbleGameUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7CC47DC2D0B6D3900D090A4 /* Debug */,
+				F7CC47DD2D0B6D3900D090A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F7CC47A92D0B6D3800D090A4 /* Project object */;
+}
