@@ -4,6 +4,7 @@ struct MainView: View {
     @EnvironmentObject var authViewModel: AuthViewModel
     @StateObject private var roomViewModel: RoomViewModel
     @State private var isCreatingRoom: Bool = false
+    @State private var isJoiningRoomByInviteCode: Bool = false
 
     // Custom initializer to pass `authViewModel` to `roomViewModel`
     init(authViewModel: AuthViewModel) {
@@ -44,8 +45,8 @@ struct MainView: View {
                                 .cornerRadius(10)
                         }
 
-                        Button(action: joinByInvitationRoom) {
-                            Text("Join by Invitation Room")
+                        Button(action: {isJoiningRoomByInviteCode = true}) {
+                            Text("Join Room by Invite Code")
                                 .frame(maxWidth: .infinity)
                                 .padding()
                                 .background(Color.blue)
@@ -69,17 +70,16 @@ struct MainView: View {
             .padding()
             .navigationBarHidden(true)
             .sheet(isPresented: $isCreatingRoom) {
-                CreateRoomModalView(roomViewModel: roomViewModel)  // Modal view for creating room
+                CreateRoomModalView(roomViewModel: roomViewModel)
+            }
+            .sheet(isPresented: $isJoiningRoomByInviteCode) {
+                InvitationCodeView(roomJoiningViewModel: roomViewModel)
             }
         }
     }
 
     func joinRandomRoom() {
         // Handle joining random room action
-    }
-
-    func joinByInvitationRoom() {
-        // Handle joining by invitation room action
     }
 
     func logOut() {
@@ -122,17 +122,6 @@ struct CreateRoomModalView: View {
                     .frame(maxWidth: .infinity)
                     .padding()
                     .background(Color.green)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
-            }
-
-            Button(action: {
-                roomViewModel.isShowingAlert = false  // Dismiss modal if cancelled
-            }) {
-                Text("Cancel")
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color.gray)
                     .foregroundColor(.white)
                     .cornerRadius(10)
             }

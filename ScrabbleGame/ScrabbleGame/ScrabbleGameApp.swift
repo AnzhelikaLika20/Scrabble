@@ -13,6 +13,8 @@ struct ScrabbleGameApp: App {
                 LoginView()
                     .environmentObject(authViewModel)
             }
+            MainView(authViewModel: authViewModel) // Pass authViewModel here
+                .environmentObject(authViewModel)
         }
     }
 }
