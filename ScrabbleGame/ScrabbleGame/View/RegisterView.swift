@@ -21,12 +21,12 @@ struct RegisterView: View {
                 .autocapitalization(.none)
                 .disableAutocorrection(true)
             
-            SecureField("Пароль", text: $viewModel.password)
+            TextField("Пароль", text: $viewModel.password)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .textContentType(.none)
                 .padding(.horizontal)
 
-            SecureField("Подтвердите пароль", text: $viewModel.confirmPassword)
+            TextField("Подтвердите пароль", text: $viewModel.confirmPassword)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .textContentType(.none)
                 .padding(.horizontal)

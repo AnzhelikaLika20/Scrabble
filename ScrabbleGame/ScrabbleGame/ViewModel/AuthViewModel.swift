@@ -35,7 +35,7 @@ class AuthViewModel: ObservableObject {
                     self.isShowingAlert = true
                     self.isLoggedIn = true
                     self.isSuccess = true
-                case .failure(let error):
+                case .failure(_):
                     self.alertMessage = "Не удалось создать нового пользователя. Попробуйте не пробовать..."
                     self.isShowingAlert = true
                     self.isSuccess = false
@@ -51,19 +51,22 @@ class AuthViewModel: ObservableObject {
             return
         }
         
-//        let user = User(username: "", email: email, password: password)
-//        loginUser(user: user) { result in
-//            DispatchQueue.main.async {
-//                switch result {
-//                case .success(let message):
-//                    self.alertMessage = message
-//                    self.isLoggedIn = true
-//                case .failure(let error):
-//                    self.alertMessage = error.localizedDescription
-//                    self.isShowingAlert = true
-//                }
-//            }
-//        }
+        let loginRequest = LoginRequest(username: self.username, email: self.email, password: self.password)
+        loginUser(loginRequest: loginRequest) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let message):
+                    self.alertMessage = message
+                    self.isShowingAlert = true
+                    self.isLoggedIn = true
+                    self.isSuccess = true
+                case .failure(let error):
+                    self.alertMessage = "Не удалось войти в аккаунт. Проверьте корректность заполнения полей..."
+                    self.isShowingAlert = true
+                    self.isSuccess = false
+                }
+            }
+        }
     }
     
     private func registerUser(registerRequest: RegisterRequest, completion: @escaping (Result<String, Error>) -> Void) {
@@ -101,7 +104,7 @@ class AuthViewModel: ObservableObject {
         task.resume()
     }
     
-    private func loginUser(user: User, completion: @escaping (Result<String, Error>) -> Void) {
+    private func loginUser(loginRequest: LoginRequest, completion: @escaping (Result<String, Error>) -> Void) {
         guard let url = URL(string: "\(baseURL)/api/v1/auth/login") else {
             completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Неверный URL"])))
             return
@@ -111,14 +114,16 @@ class AuthViewModel: ObservableObject {
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        //let loginString = "\(user.email):\(user.password)"
-        let loginString = "placeholder"
+        let loginString = "\(loginRequest.email):\(loginRequest.password)"
         guard let loginData = loginString.data(using: .utf8) else {
             completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Ошибка авторизации"])))
             return
         }
         let base64LoginString = loginData.base64EncodedString()
         request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
+        
+        let jsonData = try? JSONEncoder().encode(loginRequest)
+        request.httpBody = jsonData
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
@@ -132,7 +137,8 @@ class AuthViewModel: ObservableObject {
             }
             
             do {
-                let response = try JSONDecoder().decode(RegisterResponse.self, from: data)
+                let response = try JSONDecoder().decode(LoginResponse.self, from: data)
+                self.accessToken = response.value
                 completion(.success("Вы успешно авторизовались"))
             } catch {
                 completion(.failure(error))

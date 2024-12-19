@@ -31,7 +31,11 @@ struct LoginView: View {
                 }
                 .padding(.horizontal)
                 .alert(isPresented: $viewModel.isShowingAlert) {
-                    Alert(title: Text("Ошибка"), message: Text(viewModel.alertMessage), dismissButton: .default(Text("OK")))
+                    Alert(
+                        title: Text(viewModel.isSuccess ? "Успех" : "Ошибка"),
+                        message: Text(viewModel.alertMessage),
+                        dismissButton: .default(Text("OK"))
+                    )
                 }
                 
                 NavigationLink(destination: RegisterView()) {
