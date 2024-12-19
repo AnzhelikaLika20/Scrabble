@@ -89,15 +89,14 @@ class RoomViewModel: ObservableObject {
             request.httpMethod = "POST"
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             
-            // РАСКОМЕНТИТЬ И УБРАТЬ ТОКЕН ЗАХАРЖКОЖЕННЫЙ
-            //let accessToken = authViewModel.accessToken
-            /*if let token = accessToken {
+            let accessToken = authViewModel.accessToken
+            if let token = accessToken {
                 request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
             } else {
                 completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Отсутствует токен доступа"])))
                 return
-            }*/
-            request.setValue("Bearer rRT2nYd9cCELM1IZPixdI7zX9YH6cj3VMaNNJT77mOY=", forHTTPHeaderField: "Authorization")
+            }
+            //request.setValue("Bearer rRT2nYd9cCELM1IZPixdI7zX9YH6cj3VMaNNJT77mOY=", forHTTPHeaderField: "Authorization")
             
             let parameters: [String: Any] = [
                 "inviteCode": "inviteCode"
@@ -187,15 +186,15 @@ class RoomViewModel: ObservableObject {
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        let accessToken = "mnT84B8ZhLPTpo5HenIYlWJUybcR1GE75P+9zyiNyJA="
-        request.setValue("Bearer mnT84B8ZhLPTpo5HenIYlWJUybcR1GE75P+9zyiNyJA=", forHTTPHeaderField: "Authorization")
+        //request.setValue("Bearer mnT84B8ZhLPTpo5HenIYlWJUybcR1GE75P+9zyiNyJA=", forHTTPHeaderField: "Authorization")
         
-//        if let token = accessToken {
-//            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-//        } else {
-//            completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Отсутствует токен доступа"])))
-//            return
-//        }
+        let accessToken = authViewModel.accessToken
+        if let token = accessToken {
+            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        } else {
+            completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Отсутствует токен доступа"])))
+            return
+        }
         
         // Encode the request body
         let jsonData = try? JSONEncoder().encode(createRoomRequest)
