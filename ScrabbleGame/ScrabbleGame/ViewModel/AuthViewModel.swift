@@ -8,6 +8,8 @@ class AuthViewModel: ObservableObject {
     @Published var isLoggedIn: Bool = false
     @Published var alertMessage: String = ""
     @Published var isShowingAlert: Bool = false
+    @Published var isSuccess: Bool = true
+    @Published var accessToken: String? = nil
     
     private let baseURL = "http://127.0.0.1:8080"
     
@@ -24,16 +26,19 @@ class AuthViewModel: ObservableObject {
             return
         }
         
-        let user = User(username: username, email: email, password: password)
-        registerUser(user: user) { result in
+        let registerRequest = RegisterRequest(username: username, email: email, password: password)
+        registerUser(registerRequest: registerRequest) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let message):
                     self.alertMessage = message
-                    self.isLoggedIn = true
-                case .failure(let error):
-                    self.alertMessage = error.localizedDescription
                     self.isShowingAlert = true
+                    self.isLoggedIn = true
+                    self.isSuccess = true
+                case .failure(let error):
+                    self.alertMessage = "Не удалось создать нового пользователя. Попробуйте не пробовать..."
+                    self.isShowingAlert = true
+                    self.isSuccess = false
                 }
             }
         }
@@ -46,22 +51,22 @@ class AuthViewModel: ObservableObject {
             return
         }
         
-        let user = User(username: "", email: email, password: password)
-        loginUser(user: user) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let message):
-                    self.alertMessage = message
-                    self.isLoggedIn = true
-                case .failure(let error):
-                    self.alertMessage = error.localizedDescription
-                    self.isShowingAlert = true
-                }
-            }
-        }
+//        let user = User(username: "", email: email, password: password)
+//        loginUser(user: user) { result in
+//            DispatchQueue.main.async {
+//                switch result {
+//                case .success(let message):
+//                    self.alertMessage = message
+//                    self.isLoggedIn = true
+//                case .failure(let error):
+//                    self.alertMessage = error.localizedDescription
+//                    self.isShowingAlert = true
+//                }
+//            }
+//        }
     }
     
-    private func registerUser(user: User, completion: @escaping (Result<String, Error>) -> Void) {
+    private func registerUser(registerRequest: RegisterRequest, completion: @escaping (Result<String, Error>) -> Void) {
         guard let url = URL(string: "\(baseURL)/api/v1/auth/register") else {
             completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Неверный URL"])))
             return
@@ -71,7 +76,7 @@ class AuthViewModel: ObservableObject {
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        let jsonData = try? JSONEncoder().encode(user)
+        let jsonData = try? JSONEncoder().encode(registerRequest)
         request.httpBody = jsonData
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
@@ -87,6 +92,7 @@ class AuthViewModel: ObservableObject {
             
             do {
                 let response = try JSONDecoder().decode(RegisterResponse.self, from: data)
+                self.accessToken = response.value
                 completion(.success("Вы успешно зарегистрировались"))
             } catch {
                 completion(.failure(error))
@@ -105,7 +111,8 @@ class AuthViewModel: ObservableObject {
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        let loginString = "\(user.email):\(user.password)"
+        //let loginString = "\(user.email):\(user.password)"
+        let loginString = "placeholder"
         guard let loginData = loginString.data(using: .utf8) else {
             completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Ошибка авторизации"])))
             return
