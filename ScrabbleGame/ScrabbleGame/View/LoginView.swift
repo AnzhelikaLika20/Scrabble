@@ -38,12 +38,16 @@ struct LoginView: View {
                     )
                 }
                 
-                NavigationLink(destination: RegisterView()) {
+                NavigationLink(destination: RegisterView().environmentObject(viewModel)) {
                     Text("Нет аккаунта? Зарегистрируйтесь")
                         .foregroundColor(.blue)
                         .underline()
                 }
                 .padding(.top)
+                
+                NavigationLink(destination: MainView(authViewModel: viewModel).environmentObject(viewModel), isActive: $viewModel.isLoggedIn) {
+                    EmptyView()
+                }
             }
             .padding()
             .navigationBarHidden(true)

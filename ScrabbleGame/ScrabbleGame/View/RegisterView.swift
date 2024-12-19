@@ -48,13 +48,16 @@ struct RegisterView: View {
                 )
             }
 
-            
             NavigationLink(destination: LoginView()) {
                 Text("Уже есть аккаунт? Войдите")
                     .foregroundColor(.blue)
                     .underline()
             }
             .padding(.top)
+            
+            NavigationLink(destination: MainView(authViewModel: viewModel).environmentObject(viewModel), isActive: $viewModel.isLoggedIn) {
+                EmptyView()
+            }
         }
         .padding()
     }

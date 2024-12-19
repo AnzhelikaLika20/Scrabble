@@ -1,6 +1,8 @@
 import Foundation
+import SwiftUI
 
 class AuthViewModel: ObservableObject {
+
     @Published var username: String = ""
     @Published var email: String = ""
     @Published var password: String = ""
@@ -12,6 +14,25 @@ class AuthViewModel: ObservableObject {
     @Published var accessToken: String? = nil
     
     private let baseURL = "http://127.0.0.1:8080"
+    
+    func logOut() {
+        resetState()
+        self.alertMessage = "Logged out of account"
+        self.isShowingAlert = true
+        self.isSuccess = true
+    }
+    
+    private func resetState() {
+        self.username = ""
+        self.email = ""
+        self.password = ""
+        self.confirmPassword = ""
+        self.isLoggedIn = false
+        self.alertMessage = ""
+        self.isShowingAlert = false
+        self.isSuccess = true
+        self.accessToken = nil
+    }
     
     func register() {
         guard !username.isEmpty, !email.isEmpty, !password.isEmpty, !confirmPassword.isEmpty else {
@@ -36,7 +57,7 @@ class AuthViewModel: ObservableObject {
                     self.isLoggedIn = true
                     self.isSuccess = true
                 case .failure(_):
-                    self.alertMessage = "Не удалось создать нового пользователя. Попробуйте не пробовать..."
+                    self.alertMessage = "Не удалось создать нового пользователя. Попробуйте снова..."
                     self.isShowingAlert = true
                     self.isSuccess = false
                 }
@@ -58,9 +79,9 @@ class AuthViewModel: ObservableObject {
                 case .success(let message):
                     self.alertMessage = message
                     self.isShowingAlert = true
-                    self.isLoggedIn = true
+                    self.isLoggedIn = true // Set isLoggedIn to true after success
                     self.isSuccess = true
-                case .failure(let error):
+                case .failure(_):
                     self.alertMessage = "Не удалось войти в аккаунт. Проверьте корректность заполнения полей..."
                     self.isShowingAlert = true
                     self.isSuccess = false
@@ -84,25 +105,37 @@ class AuthViewModel: ObservableObject {
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
-                completion(.failure(error))
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
                 return
             }
             
             guard let data = data else {
-                completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Нет данных от сервера"])))
+                DispatchQueue.main.async {
+                    completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Нет данных от сервера"])))
+                }
                 return
             }
             
             do {
                 let response = try JSONDecoder().decode(RegisterResponse.self, from: data)
-                self.accessToken = response.value
-                completion(.success("Вы успешно зарегистрировались"))
+                DispatchQueue.main.async {
+                    self.accessToken = response.value
+                    self.alertMessage = "Вы успешно зарегистрировались"
+                    self.isLoggedIn = true
+                    self.isSuccess = true
+                    completion(.success("Вы успешно зарегистрировались"))
+                }
             } catch {
-                completion(.failure(error))
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
             }
         }
         task.resume()
     }
+
     
     private func loginUser(loginRequest: LoginRequest, completion: @escaping (Result<String, Error>) -> Void) {
         guard let url = URL(string: "\(baseURL)/api/v1/auth/login") else {
@@ -127,21 +160,32 @@ class AuthViewModel: ObservableObject {
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
-                completion(.failure(error))
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
                 return
             }
             
             guard let data = data else {
-                completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Нет данных от сервера"])))
+                DispatchQueue.main.async {
+                    completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Нет данных от сервера"])))
+                }
                 return
             }
             
             do {
                 let response = try JSONDecoder().decode(LoginResponse.self, from: data)
-                self.accessToken = response.value
-                completion(.success("Вы успешно авторизовались"))
+                DispatchQueue.main.async {
+                    self.accessToken = response.value
+                    self.alertMessage = "Вы успешно авторизировались"
+                    self.isLoggedIn = true
+                    self.isSuccess = true
+                    completion(.success("Вы успешно авторизировались"))
+                }
             } catch {
-                completion(.failure(error))
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
             }
         }
         task.resume()
