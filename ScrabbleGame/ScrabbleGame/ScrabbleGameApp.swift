@@ -7,14 +7,12 @@ struct ScrabbleGameApp: App {
     var body: some Scene {
         WindowGroup {
             if authViewModel.isLoggedIn {
-                MainView(authViewModel: authViewModel) // Pass authViewModel here
+                MainView(authViewModel: authViewModel)
                     .environmentObject(authViewModel)
             } else {
                 LoginView()
                     .environmentObject(authViewModel)
             }
-            MainView(authViewModel: authViewModel) // Pass authViewModel here
-                .environmentObject(authViewModel)
         }
     }
 }
