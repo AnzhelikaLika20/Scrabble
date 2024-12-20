@@ -20,6 +20,21 @@ struct MainView: View {
                     .fontWeight(.bold)
 
                 Button(action: {
+                    roomViewModel.fetchPublicRooms()
+                }) {
+                    Text("View Public Rooms")
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color.orange)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                }
+                .sheet(isPresented: $roomViewModel.isShowingRoomList) {
+                    PublicRoomsView(roomViewModel: roomViewModel)
+                }
+
+                
+                Button(action: {
                     isCreatingRoom = true
                 }) {
                     Text("Create Room")

@@ -2,6 +2,8 @@ import Foundation
 import SwiftUI
 
 class RoomViewModel: ObservableObject {
+    @Published var publicRooms: [RoomListElementResponse] = []
+    @Published var isShowingRoomList: Bool = false
     @Published var isPrivate: Bool = false
     @Published var timePerTurn: Int = 0
     @Published var maxPlayers: Int = 0
@@ -158,6 +160,58 @@ class RoomViewModel: ObservableObject {
             }
         }
     }
+    
+    func fetchPublicRooms() {
+           guard let url = URL(string: "\(baseURL)/rooms/getPublic") else {
+               alertMessage = "Неверный URL"
+               isShowingAlert = true
+               return
+           }
+
+           var request = URLRequest(url: url)
+           request.httpMethod = "GET"
+           let accessToken = authViewModel.accessToken
+
+           if let token = accessToken {
+               request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+           } else {
+               alertMessage = "Отсутствует токен доступа"
+               isShowingAlert = true
+               return
+           }
+
+           let task = URLSession.shared.dataTask(with: request) { data, response, error in
+               if let error = error {
+                   DispatchQueue.main.async {
+                       self.alertMessage = "Ошибка: \(error.localizedDescription)"
+                       self.isShowingAlert = true
+                   }
+                   return
+               }
+
+               guard let data = data else {
+                   DispatchQueue.main.async {
+                       self.alertMessage = "Нет данных от сервера"
+                       self.isShowingAlert = true
+                   }
+                   return
+               }
+
+               do {
+                   let rooms = try JSONDecoder().decode([RoomListElementResponse].self, from: data)
+                   DispatchQueue.main.async {
+                       self.publicRooms = rooms
+                       self.isShowingRoomList = true
+                   }
+               } catch {
+                   DispatchQueue.main.async {
+                       self.alertMessage = "Ошибка декодирования данных"
+                       self.isShowingAlert = true
+                   }
+               }
+           }
+           task.resume()
+       }
     
     private func createRoomRequestAPI(createRoomRequest: CreateRoomRequest, completion: @escaping (Result<String, Error>) -> Void) {
         guard let url = URL(string: "\(baseURL)/rooms/create") else {
