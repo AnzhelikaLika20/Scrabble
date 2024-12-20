@@ -79,7 +79,7 @@ class AuthViewModel: ObservableObject {
                 case .success(let message):
                     self.alertMessage = message
                     self.isShowingAlert = true
-                    self.isLoggedIn = true // Set isLoggedIn to true after success
+                    self.isLoggedIn = true
                     self.isSuccess = true
                 case .failure(_):
                     self.alertMessage = "Не удалось войти в аккаунт. Проверьте корректность заполнения полей..."

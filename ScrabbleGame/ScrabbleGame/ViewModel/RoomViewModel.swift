@@ -76,9 +76,9 @@ class RoomViewModel: ObservableObject {
                 switch result {
                 case .success(let message):
                     self.alertMessage = message
-                    self.isShowingAlert = true
                     self.isRoomCreated = true
                     self.isSuccess = true
+                    self.isShowingRoomInfo = true
                 case .failure(_):
                     self.alertMessage = "Не удалось создать комнату. Попробуйте еще раз."
                     self.isShowingAlert = true
@@ -98,15 +98,15 @@ class RoomViewModel: ObservableObject {
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        let accessToken = "mnT84B8ZhLPTpo5HenIYlWJUybcR1GE75P+9zyiNyJA="
-        request.setValue("Bearer mnT84B8ZhLPTpo5HenIYlWJUybcR1GE75P+9zyiNyJA=", forHTTPHeaderField: "Authorization")
+//        let accessToken = "mnT84B8ZhLPTpo5HenIYlWJUybcR1GE75P+9zyiNyJA="
+//        request.setValue("Bearer mnT84B8ZhLPTpo5HenIYlWJUybcR1GE75P+9zyiNyJA=", forHTTPHeaderField: "Authorization")
         
-//        if let token = accessToken {
-//            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-//        } else {
-//            completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Отсутствует токен доступа"])))
-//            return
-//        }
+        if let token = authViewModel.accessToken {
+            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        } else {
+            completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Отсутствует токен доступа"])))
+            return
+        }
         
         // Encode the request body
         let jsonData = try? JSONEncoder().encode(createRoomRequest)
@@ -129,11 +129,12 @@ class RoomViewModel: ObservableObject {
             }
             
             do {
-                // Decode the response
                 let response = try JSONDecoder().decode(CreateRoomResponse.self, from: data)
                 DispatchQueue.main.async {
                     self.invitationCode = response.inviteCode
                     self.adminID = response.adminID
+                    self.maxPlayers = response.maxPlayers
+                    self.timePerTurn = response.timePerTurn
                     self.alertMessage = "Комната успешно создана. Пригласительный код: \(response.inviteCode)"
                     completion(.success("Комната успешно создана"))
                 }
