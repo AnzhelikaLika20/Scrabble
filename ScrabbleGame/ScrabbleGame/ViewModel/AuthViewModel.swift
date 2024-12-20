@@ -4,10 +4,12 @@ import SwiftUI
 class AuthViewModel: ObservableObject {
 
     @Published var username: String = ""
+    //@Published var username: String = "amo"
     @Published var email: String = ""
     @Published var password: String = ""
     @Published var confirmPassword: String = ""
     @Published var isLoggedIn: Bool = false
+    //@Published var isLoggedIn: Bool = true
     @Published var alertMessage: String = ""
     @Published var isShowingAlert: Bool = false
     @Published var isSuccess: Bool = true

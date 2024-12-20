@@ -40,6 +40,7 @@ struct RoomController: RouteCollection {
         return room.toDTO(for: userID)
     }
 
+
     @Sendable
     func joinByInviteCode(req: Request) async throws -> RoomDTO {
         let joinRoomDTO = try req.content.decode(JoinRoomDTO.self)

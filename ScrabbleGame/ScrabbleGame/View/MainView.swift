@@ -53,6 +53,13 @@ struct MainView: View {
                                 .foregroundColor(.white)
                                 .cornerRadius(10)
                         }
+                        .alert(isPresented: $roomViewModel.isPlayerInRoom) {
+                            Alert(
+                                title: Text(roomViewModel.isSuccess ? "Успех" : "Ошибка"),
+                                message: Text(roomViewModel.alertMessage),
+                                dismissButton: .default(Text("OK"))
+                            )
+                        }
                     }
                     .padding(.horizontal)
                 }
@@ -79,7 +86,7 @@ struct MainView: View {
     }
 
     func joinRandomRoom() {
-        // Handle joining random room action
+        roomViewModel.joinRandomPublicRoom()
     }
 
     func logOut() {
