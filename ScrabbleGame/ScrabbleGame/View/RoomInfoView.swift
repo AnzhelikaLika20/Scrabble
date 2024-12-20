@@ -28,7 +28,7 @@ struct RoomInfoView: View {
             HStack {
                 Text("Invite Code:")
                 Spacer()
-                Text(inviteCode)
+                Text("\(inviteCode)")
             }
             .padding()
         }
