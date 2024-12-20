@@ -6,7 +6,7 @@ struct InvitationCodeView: View {
 
     var body: some View {
         VStack(spacing: 20) {
-            Text("Enter Invitate Code")
+            Text("Enter Invitation Code")
                 .font(.title)
                 .padding()
 
