@@ -3,15 +3,14 @@ import SwiftUI
 
 class RoomViewModel: ObservableObject {
     @Published var isPrivate: Bool = false
-    @Published var timePerTurn: Int = 30
-    @Published var maxPlayers: Int = 4
+    @Published var timePerTurn: Int = 0
+    @Published var maxPlayers: Int = 0
     @Published var isRoomCreated: Bool = false
     @Published var alertMessage: String = ""
     @Published var isShowingAlert: Bool = false
     @Published var isShowingRoomInfo: Bool = false
-    @Published var isSuccess: Bool = true
+    @Published var isSuccess: Bool = false
     @Published var currentRoomId: String = ""
-    @Published var roomDetails: (playerCount: Int, timePerMove: Int, inviteCode: String)? = nil
     @Published var invitationCode: String = ""
     @Published var isPlayerInRoom: Bool = false
 
@@ -40,16 +39,11 @@ class RoomViewModel: ObservableObject {
                 switch result {
                 case .success(let room):
                     self.alertMessage = "Вы успешно присоединились к комнате."
-                    self.isShowingAlert = true
+                    self.isShowingAlert = false
                     self.currentRoomId = room
                     self.isSuccess = true
                     self.isShowingRoomInfo = true
-                    self.roomDetails = (
-                                            playerCount: 4,
-                                            timePerMove: 60,
-                                            inviteCode: inviteCode
-                                        )
-                case .failure(let _):
+                case .failure( _):
                     self.alertMessage = "Не удалось присоединиться к комнате. Попробуйте еще раз."
                     self.isShowingAlert = true
                     self.isSuccess = false
@@ -174,8 +168,9 @@ class RoomViewModel: ObservableObject {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
+    
         let accessToken = authViewModel.accessToken
+        
         if let token = accessToken {
             request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         } else {
@@ -267,6 +262,9 @@ class RoomViewModel: ObservableObject {
             do {
                 let roomDTO = try JSONDecoder().decode(JoinRoomByInvitationCodeResponse.self, from: data)
                 DispatchQueue.main.async {
+                    self.maxPlayers = roomDTO.maxPlayers
+                    self.invitationCode = roomDTO.inviteCode
+                    self.timePerTurn = roomDTO.timePerTurn
                     completion(.success("Вы успешно присоединились к комнате"))
                 }
             } catch {
